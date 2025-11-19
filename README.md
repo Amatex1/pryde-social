@@ -22,7 +22,7 @@
 
 ## Deployment on Render
 
-This project consists of two separate services that need to be deployed on Render:
+This project consists of two separate services that need to be deployed on Render.
 
 ### Prerequisites
 
@@ -30,11 +30,28 @@ This project consists of two separate services that need to be deployed on Rende
 2. Pusher account for realtime features
 3. Google OAuth credentials (optional, for Google login)
 
+### Deployment Options
+
+You can deploy this project in two ways:
+
+#### Option 1: Blueprint Deployment (Recommended - Faster)
+
+1. **Use the Blueprint**: This repository includes a `render.yaml` file that automatically configures both services
+   - In Render dashboard, click "New" → "Blueprint"
+   - Connect your GitHub repository
+   - Render will automatically create both frontend and backend services
+   
+2. **Set Environment Variables**: After services are created, add the sensitive environment variables manually:
+   - For backend service, add: `MONGO_URL`, `JWT_SECRET`, `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET`
+   - For frontend service, add: `REACT_APP_BACKEND_URL` (your backend URL with trailing slash)
+
+#### Option 2: Manual Deployment (More Control)
+
 ### Backend Deployment (Node.js/Express)
 
 1. **Create a new Web Service on Render**
    - Connect your GitHub repository
-   - Select the `facebook-backend` folder as the root directory
+   - **IMPORTANT**: Set "Root Directory" to `facebook-backend`
    - Build Command: `npm install`
    - Start Command: `npm start`
    - Environment: `Node`
@@ -64,9 +81,9 @@ This project consists of two separate services that need to be deployed on Rende
 
 1. **Create a new Static Site on Render**
    - Connect your GitHub repository
-   - Select the `facebook` folder as the root directory
+   - **IMPORTANT**: Set "Root Directory" to `facebook`
    - Build Command: `npm install && npm run build`
-   - Publish Directory: `build`
+   - Publish Directory: `build` (not `./build` or `/build`, just `build`)
 
 2. **Configure Environment Variables**
    
@@ -121,7 +138,64 @@ npm install
 npm start
 ```
 
-### Troubleshooting
+### Troubleshooting Render Deployment
+
+#### Common Deployment Issues
+
+**1. "Build failed" or "Command failed"**
+- **Root Directory Not Set**: In Render dashboard, make sure to set the correct root directory:
+  - Backend service: Set "Root Directory" to `facebook-backend`
+  - Frontend service: Set "Root Directory" to `facebook`
+- **Missing Node Version**: Ensure Node.js version is set to 18 or higher (20.19.5 recommended)
+  - Check if `.nvmrc` file exists in the service directory
+  - Or set `NODE_VERSION` environment variable to `20.19.5`
+
+**2. Backend deployment fails**
+- **Environment Variables Missing**: Verify ALL required environment variables are set in Render dashboard:
+  - `MONGO_URL` - Your MongoDB connection string
+  - `JWT_SECRET` - Any random secure string
+  - `PUSHER_APP_ID` - From Pusher dashboard
+  - `PUSHER_KEY` - From Pusher dashboard  
+  - `PUSHER_SECRET` - From Pusher dashboard
+  - `PUSHER_CLUSTER` - Your Pusher cluster (e.g., `ap2`)
+- **MongoDB Connection**: Check that MongoDB Atlas IP whitelist includes `0.0.0.0/0` for Render
+- **Port Configuration**: Render automatically sets `PORT` - don't override it
+
+**3. Frontend deployment fails**
+- **Backend URL Not Set**: Set `REACT_APP_BACKEND_URL` to your backend service URL (e.g., `https://your-backend.onrender.com/`)
+  - **Important**: Include the trailing slash `/`
+- **Build Command**: Ensure build command is: `npm install && npm run build`
+- **Publish Directory**: Must be set to `build` (not `./build` or `/build`)
+
+**4. Using Blueprint (render.yaml)**
+- If you committed the `render.yaml` file, you can use "Blueprint" deployment:
+  1. In Render dashboard, click "New" → "Blueprint"
+  2. Connect your repository
+  3. Render will read `render.yaml` and create both services automatically
+  4. You'll still need to manually set the sensitive environment variables (MONGO_URL, secrets, etc.)
+
+**5. Services created but not working**
+- **Backend starts but crashes**: Check logs for missing environment variables
+- **Frontend builds but shows connection errors**: Verify `REACT_APP_BACKEND_URL` is correct
+- **CORS errors**: Backend allows all origins by default. If you modified CORS settings, ensure your frontend domain is allowed
+
+#### Quick Deployment Checklist
+
+Backend Service:
+- [ ] Root Directory: `facebook-backend`
+- [ ] Build Command: `npm install`
+- [ ] Start Command: `npm start`
+- [ ] Node Version: 20.19.5 (via .nvmrc or NODE_VERSION env var)
+- [ ] All environment variables set (MONGO_URL, JWT_SECRET, PUSHER_*)
+
+Frontend Service:
+- [ ] Root Directory: `facebook`
+- [ ] Build Command: `npm install && npm run build`
+- [ ] Publish Directory: `build`
+- [ ] Node Version: 20.19.5 (via .nvmrc or NODE_VERSION env var)
+- [ ] REACT_APP_BACKEND_URL set to backend URL with trailing slash
+
+### Local Development Troubleshooting
 
 - **Backend fails to start**: Check that all environment variables are set correctly, especially `MONGO_URL` and Pusher credentials.
 - **Frontend can't connect to backend**: Verify that `REACT_APP_BACKEND_URL` is set correctly and includes the trailing slash.
