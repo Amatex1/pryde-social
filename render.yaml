@@ -1,0 +1,36 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: pryde-social-backend
+    env: node
+    rootDir: facebook-backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.5
+      - key: MONGO_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PUSHER_APP_ID
+        sync: false
+      - key: PUSHER_KEY
+        sync: false
+      - key: PUSHER_SECRET
+        sync: false
+      - key: PUSHER_CLUSTER
+        value: ap2
+
+  # Frontend Static Site
+  - type: web
+    name: pryde-social-frontend
+    env: static
+    rootDir: facebook
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.5
+      - key: REACT_APP_BACKEND_URL
+        sync: false

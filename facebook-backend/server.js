@@ -5,6 +5,7 @@ import GridfsStorage from 'multer-gridfs-storage'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import Pusher from 'pusher'
+import dotenv from 'dotenv'
 import './dbConn.js'
 import connUrl from './dbConn.js'
 import path from 'path'
@@ -15,15 +16,15 @@ import './pusher-realtime.js'
 import userRouter from './router/userRouting.js'
 import chatRouter from './router/chatsRouting.js'
 import messageRouter from './router/messageRouting.js'
-import dotenv from 'dotenv'
 
+// Load environment variables first
+dotenv.config()
 
 Grid.mongo = mongoose.mongo
 
 //app config
 const app = express()
 const port = process.env.PORT || 9000
-dotenv.config()
 
 
 //middlewares

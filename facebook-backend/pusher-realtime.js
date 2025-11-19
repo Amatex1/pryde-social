@@ -1,11 +1,14 @@
 import Pusher from 'pusher'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const pusher = new Pusher({
-    appId: "1208219",
-    key: "67b0ff49cf4886f490dd",
-    secret: "16cffb2b2508fbebeb60",
-    cluster: "ap2",
+    appId: process.env.PUSHER_APP_ID,
+    key: process.env.PUSHER_KEY,
+    secret: process.env.PUSHER_SECRET,
+    cluster: process.env.PUSHER_CLUSTER || "ap2",
     useTLS: true
   });
 
