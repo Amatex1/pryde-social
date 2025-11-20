@@ -1,0 +1,28 @@
+.detailsWrapper {
+    padding: 20px;
+}
+
+.detailsAvatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.detailsBio {
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-top: 6px;
+}
+
+.newGroupBtn {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background: #a08bff;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
