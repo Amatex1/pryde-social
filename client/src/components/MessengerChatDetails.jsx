@@ -20,7 +20,7 @@ const MessengerChatDetails = ({ activeChatId, activeUser, openCreateGroup }) => 
         return <div className="detailsEmpty">Select a chat</div>;
 
     if (!chat)
-        return <div className="detailsLoading">Loading…</div>;
+        return <div className="detailsLoading">Loadingâ€¦</div>;
 
     const isGroup = chat.isGroup;
 
