@@ -1,0 +1,9 @@
+.sidebar {
+    flex: 0.33;
+    padding-top: 20px;
+}
+
+    .sidebar a {
+        text-decoration: none;
+        color: black;
+    }

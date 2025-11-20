@@ -1,0 +1,82 @@
+.chatsWrapper {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .chatsHeader h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+.createGroupBtn {
+    background: #a08bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.chatList {
+    margin-top: 10px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.chatItem {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .chatItem:hover {
+        background: #f0e9ff;
+    }
+
+.activeChat {
+    background: #f0e9ff;
+}
+
+.avatarWrapper {
+    position: relative;
+}
+
+.chatAvatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.onlineDot {
+    width: 12px;
+    height: 12px;
+    background: #5dea84;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid white;
+}
+
+.chatInfo {
+    margin-left: 12px;
+}
+
+.lastMessage {
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-top: 3px;
+}

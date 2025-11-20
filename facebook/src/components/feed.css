@@ -1,8 +1,0 @@
-.feed{
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
-    flex: 0.8;
-    background-color: white;
-}

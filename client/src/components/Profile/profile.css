@@ -1,0 +1,245 @@
+/* ------------------------------
+   PROFILE PAGE WRAPPER
+--------------------------------*/
+.profilePage {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    font-family: "Inter", sans-serif;
+    color: #222;
+}
+
+/* ------------------------------
+   COVER PHOTO AREA
+--------------------------------*/
+.profileCoverWrapper {
+    width: 100%;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+    background: #f0f0f0;
+}
+
+.profileCover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Change Cover Button */
+.editCoverBtn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    background: rgba(80, 80, 80, 0.7);
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+    .editCoverBtn:hover {
+        background: rgba(60, 60, 60, 0.85);
+    }
+
+/* ------------------------------
+   PROFILE INFO CARD
+--------------------------------*/
+.profileInfoCard {
+    background: #fff;
+    width: 100%;
+    margin-top: -70px;
+    border-radius: 12px;
+    padding: 90px 30px 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    position: relative;
+    text-align: center;
+}
+
+/* ------------------------------
+   PROFILE AVATAR
+--------------------------------*/
+.profileAvatarWrapper {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profileAvatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+/* Edit avatar button */
+.editAvatarBtn {
+    position: absolute;
+    bottom: 8px;
+    right: -10px;
+    background: var(--pryde-primary, #a56ceb);
+    color: #fff;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+    transition: 0.2s ease;
+}
+
+    .editAvatarBtn:hover {
+        background: #8c54d9;
+    }
+
+/* ------------------------------
+   TEXT INFO
+--------------------------------*/
+.profileName {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+}
+
+.profilePronouns {
+    font-size: 15px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.profileBio {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+/* ------------------------------
+   EDIT PROFILE BUTTON
+--------------------------------*/
+.editProfileButton {
+    margin-top: 20px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: var(--pryde-primary, #a56ceb);
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+    font-weight: 500;
+}
+
+    .editProfileButton:hover {
+        background: #8c54d9;
+    }
+
+/* ------------------------------
+   POSTS LIST
+--------------------------------*/
+.profilePostsWrapper {
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.profilePostsTitle {
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.noPostsMessage {
+    font-size: 15px;
+    color: #777;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* ------------------------------
+   LOADING STATE
+--------------------------------*/
+.profileLoading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #777;
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+--------------------------------*/
+@media (max-width: 768px) {
+
+    .profileCoverWrapper {
+        height: 180px;
+    }
+
+    .profileInfoCard {
+        padding: 80px 20px 20px;
+    }
+
+    .profileAvatar {
+        width: 110px;
+        height: 110px;
+    }
+
+    .profileName {
+        font-size: 22px;
+    }
+    /* FRIENDS SECTION */
+    .profileFriendsWrapper {
+        background: #fff;
+        margin-top: 30px;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .profileFriendsTitle {
+        font-size: 20px;
+        margin-bottom: 14px;
+        font-weight: 600;
+    }
+
+    .noFriendsMessage {
+        color: #777;
+        font-size: 15px;
+        padding: 10px 0;
+    }
+
+    .friendsGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .friendCard {
+        text-align: center;
+    }
+
+        .friendCard img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 6px;
+        }
+
+        .friendCard p {
+            font-size: 14px;
+            color: #333;
+        }
+
+}

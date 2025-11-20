@@ -1,0 +1,16 @@
+.searchWrapper {
+    margin-top: 10px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #fafafa;
+}
+
+    .searchInput:focus {
+        outline: none;
+        border-color: #a08bff;
+    }

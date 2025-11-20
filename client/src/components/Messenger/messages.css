@@ -1,0 +1,59 @@
+.msgRow {
+    display: flex;
+    margin-bottom: 12px;
+    max-width: 80%;
+}
+
+.mine {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.msgBubble {
+    background: white;
+    padding: 12px 14px;
+    border-radius: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.mine .msgBubble {
+    background: #ede8ff;
+}
+
+.msgBubble p {
+    margin: 0;
+}
+
+.fileAttachment {
+    color: #a08bff;
+    text-decoration: underline;
+    display: block;
+    margin-top: 6px;
+}
+
+.audioAttachment {
+    margin-top: 6px;
+    width: 100%;
+}
+
+.msgStatus {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #6b6b6b;
+}
+
+.reactionDisplay {
+    margin-left: 6px;
+    font-size: 16px;
+    display: flex;
+    gap: 4px;
+}
+
+.reactionEmoji {
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 3px 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}

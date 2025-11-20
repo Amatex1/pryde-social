@@ -1,0 +1,22 @@
+.membersWrapper {
+    margin-top: 15px;
+}
+
+.memberRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.memberAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.memberName {
+    font-size: 15px;
+    font-weight: 500;
+}

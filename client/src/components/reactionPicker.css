@@ -1,0 +1,34 @@
+.reactionWrapper {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+}
+
+.reactionToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #a08bff;
+}
+
+.reactionMenu {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+    display: flex;
+    gap: 6px;
+}
+
+.reactionOption {
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+    .reactionOption:hover {
+        transform: scale(1.2);
+    }

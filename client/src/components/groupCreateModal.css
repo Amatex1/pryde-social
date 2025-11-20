@@ -1,0 +1,52 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalCard {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.modalInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.modalUpload {
+    margin-top: 12px;
+    display: block;
+    cursor: pointer;
+    color: #a08bff;
+}
+
+.modalButton {
+    background: #a08bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 18px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.modalClose {
+    margin-top: 12px;
+    background: #f3f3f5;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}

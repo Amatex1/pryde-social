@@ -1,0 +1,16 @@
+.sidebarRow {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+    .sidebarRow:hover {
+        background-color: rgba(111, 66, 193, 0.12);
+    }
+
+    .sidebarRow h5 {
+        margin-left: 15px;
+        font-weight: 500;
+    }
