@@ -1,7 +1,7 @@
 ﻿import React, { useState } from "react";
 import axios from "../../axios";
 import "./editProfile.css";
-import EditProfileModal from "./Profile/EditProfileModal";
+import EditProfileModal from "./components/EditProfileModal";
 
 const EditProfileModal = ({ viewer, onClose, refresh }) => {
     const [nickname, setNickname] = useState(viewer.nickname || "");
