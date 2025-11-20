@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import "./friendButton.css";
+import FriendButton from "./Profile/FriendButton";
 
 const FriendButton = ({ viewer, user, refreshProfile }) => {
     const [status, setStatus] = useState("loading");
