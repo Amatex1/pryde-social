@@ -234,8 +234,6 @@ router.get("/users/:id", async (req, res) => {
       FRIEND SYSTEM — MUTUAL FRIEND MODEL
    ------------------------------------------------- */
 
-import Users from "../models/userModel.js"; // ensure this import already exists
-
 /* -------------------------
    SEND FRIEND REQUEST
 --------------------------*/
