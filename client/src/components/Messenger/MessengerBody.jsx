@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect, useRef } from "react";
-import axios from "../../axios";
+import axios from "../axios";
 import Pusher from "pusher-js";
 import Messages from "./Messages";
 import ReactionPicker from "./ReactionPicker";
