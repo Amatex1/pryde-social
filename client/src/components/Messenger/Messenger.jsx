@@ -5,6 +5,7 @@ import MessengerChats from "./MessengerChats";
 import MessengerBody from "./MessengerBody";
 import MessengerChatDetails from "./MessengerChatDetails";
 import GroupCreateModal from "./GroupCreateModal";
+import api from "../../axios";
 
 const Messenger = () => {
     const [activeChatId, setActiveChatId] = useState(null);
