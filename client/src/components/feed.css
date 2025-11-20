@@ -1,0 +1,27 @@
+.feed {
+    flex: 1;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    /* Story Reel wrapper spacing */
+    .feed > .storyReel {
+        margin-bottom: 20px;
+    }
+
+    /* Make sure posts and messagesender stack properly */
+    .feed > * {
+        width: 100%;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feed {
+        padding: 10px;
+        max-width: 100%;
+    }
+}
