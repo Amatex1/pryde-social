@@ -1,5 +1,5 @@
 ﻿import React, { useState } from "react";
-import axios from "../../axios";
+import axios from "../axios";
 import "./Post.css";
 import Comments from "./Comments";
 
