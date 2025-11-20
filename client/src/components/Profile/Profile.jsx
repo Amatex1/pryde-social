@@ -4,6 +4,7 @@ import "./profile.css";
 import EditProfileModal from "./EditProfileModal";
 import Post from "../Feed/Post";
 import FriendButton from "./FriendButton";
+import Profile from "./Profile/Profile";
 
 const Profile = () => {
     const [user, setUser] = useState(null); // Profile being viewed
