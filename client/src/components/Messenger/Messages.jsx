@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import ReactionPicker from "./ReactionPicker";
 import "./messages.css";
+import api from "../../axios";
 
 const Messages = ({ msg, currentUserId }) => {
     const isMine = msg.sender?._id === currentUserId;
