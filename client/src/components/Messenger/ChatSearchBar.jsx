@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../axios";
+import api from "../../axios";
 import "./chatSearchBar.css";
 
 const ChatSearchBar = ({ setChats, userId }) => {
