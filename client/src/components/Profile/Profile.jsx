@@ -1,16 +1,16 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import "./profile.css";
 import EditProfileModal from "./EditProfileModal";
 import Post from "../Feed/Post";
 import FriendButton from "./FriendButton";
-import Profile from "./Profile/Profile";
 
 const Profile = () => {
     const [user, setUser] = useState(null); // Profile being viewed
     const [viewer, setViewer] = useState(null); // Logged-in user
     const [posts, setPosts] = useState([]);
     const [editOpen, setEditOpen] = useState(false);
+
     const refreshProfile = () => {
         loadProfile();
         loadViewer();
@@ -106,7 +106,6 @@ const Profile = () => {
 
     return (
         <div className="profilePage">
-
             {/* ---- COVER PHOTO ---- */}
             <div className="profileCoverWrapper">
                 <img
@@ -166,7 +165,10 @@ const Profile = () => {
                     {user.nickname || user.fullname}
                 </h2>
 
-                {user.pronouns && <p className="profilePronouns">{user.pronouns}</p>}
+                {user.pronouns && (
+                    <p className="profilePronouns">{user.pronouns}</p>
+                )}
+
                 <FriendButton
                     viewer={viewer}
                     user={user}
@@ -176,11 +178,16 @@ const Profile = () => {
                 {user.bio && <p className="profileBio">{user.bio}</p>}
 
                 {isOwner && (
-                    <button className="editProfileButton" onClick={() => setEditOpen(true)}>
+                    <button
+                        className="editProfileButton"
+                        onClick={() => setEditOpen(true)}
+                    >
                         Edit Profile
                     </button>
                 )}
             </div>
+
+            {/* ---- FRIENDS ---- */}
             <div className="profileFriendsWrapper">
                 <h3 className="profileFriendsTitle">Friends</h3>
 
@@ -205,7 +212,7 @@ const Profile = () => {
                 </div>
             </div>
 
-            {/* ---- USER'S POSTS ---- */}
+            {/* ---- POSTS ---- */}
             <div className="profilePostsWrapper">
                 <h3 className="profilePostsTitle">Posts</h3>
 
@@ -218,6 +225,7 @@ const Profile = () => {
                 ))}
             </div>
 
+            {/* ---- EDIT PROFILE MODAL ---- */}
             {editOpen && (
                 <EditProfileModal
                     viewer={viewer}
