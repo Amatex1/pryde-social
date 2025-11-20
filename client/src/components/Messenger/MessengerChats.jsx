@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../axios";
+import axios from "../axios";
 import Pusher from "pusher-js";
 import ChatSearchBar from "./ChatSearchBar";
 import "./messengerChats.css";
