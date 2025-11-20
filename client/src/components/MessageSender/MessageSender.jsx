@@ -1,5 +1,5 @@
 ﻿import React, { useRef, useState } from "react";
-import axios from "../axios";
+import axios from "../../axios";
 import "./MessageSender.css";
 
 const MessageSender = ({ onPostCreated }) => {
