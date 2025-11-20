@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Profile from "./Profile";
-import EditProfile from ".Profile/EditProfile";
 
 const Account = () => {
     return (
