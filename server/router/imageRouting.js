@@ -1,10 +1,10 @@
 const express = require("express");
-import mongoose from "mongoose";
-import Grid from "gridfs-stream";
-import GridfsStorage from "multer-gridfs-storage";
-import connUrl from "../dbConn.js";
-import multer from "multer";
-import path from "path";
+const mongoose = require('mongoose');
+const Grid = require('gridfs-stream');
+const GridfsStorage = require('multer-gridfs-storage');
+const connUrl = require('../dbConn');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
 

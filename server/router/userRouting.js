@@ -1,12 +1,12 @@
 const express = require("express");
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import Users from "../models/userModel.js";
-import multer from "multer";
-import GridFsStorage from "multer-gridfs-storage";
-import connUrl from "../dbConn.js";
-import mongoose from "mongoose";
-import Pusher from "pusher";
+const bcrypt = require('bcryp');
+const jwt = require('jsonwebtoken');
+const Users = require('../models/userModel');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const connUrl = require('../dbConn');
+const mongoose = require('mongoose');
+const Pusher = require('pusher');
 
 const router = express.Router();
 
@@ -234,7 +234,7 @@ router.get("/users/:id", async (req, res) => {
       FRIEND SYSTEM — MUTUAL FRIEND MODEL
    ------------------------------------------------- */
 
-import Users from "../models/userModel.js"; // ensure this import already exists
+const Users = require('../models/userModel'); // ensure this import already exists
 
 /* -------------------------
    SEND FRIEND REQUEST

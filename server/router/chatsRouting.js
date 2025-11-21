@@ -1,8 +1,8 @@
 const express = require("express");
-import Chats from "../models/chatsModel.js";
-import Users from "../models/userModel.js";
-import Messages from "../models/messagesModel.js";
-import { pusher } from "../server.js";
+const Chats = require('../models/chatsModel');
+const Users = require('../models/userModel');
+const Messages = require('../models/messagesModel');
+const { pusher } = require('../server');
 
 const router = express.Router();
 
