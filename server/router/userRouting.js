@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Users = require("../models/userModel");
 const multer = require("multer");
-const GridFsStorage = require("multer-gridfs-storage");
+const { GridFsStorage } = require("multer-gridfs-storage");
 const connUrl = require("../dbConn");
 const mongoose = require("mongoose");
 const Pusher = require("pusher");
@@ -13,6 +13,8 @@ const router = express.Router();
 /* -------------------------
    GRIDFS STORAGE
 ------------------------- */
+const { GridFsStorage } = require("multer-gridfs-storage");
+
 const storage = new GridFsStorage({
   url: connUrl,
   file: (req, file) => {
