@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 import Chats from "../models/chatsModel.js";
 import Users from "../models/userModel.js";
 import Messages from "../models/messagesModel.js";
@@ -167,4 +167,4 @@ router.get("/chats/my", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

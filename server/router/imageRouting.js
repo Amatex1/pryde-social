@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 import mongoose from "mongoose";
 import Grid from "gridfs-stream";
 import GridfsStorage from "multer-gridfs-storage";
@@ -62,4 +62,4 @@ router.get("/retrieve/file/:name", (req, res) => {
   });
 });
 
-export default router;
+module.exports = router;

@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 import Messages from "../models/messagesModel.js";
 import Chats from "../models/chatsModel.js";
 import { pusher } from "../server.js";
@@ -129,4 +129,4 @@ router.post("/message/react/remove", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
