@@ -13,8 +13,6 @@ const router = express.Router();
 /* -------------------------
    GRIDFS STORAGE
 ------------------------- */
-const { GridFsStorage } = require("multer-gridfs-storage");
-
 const storage = new GridFsStorage({
   url: connUrl,
   file: (req, file) => {
