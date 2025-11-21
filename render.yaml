@@ -1,14 +1,14 @@
 services:
-  # Backend Web Service
   - type: web
-    name: pryde-social-backend
+    name: pryde-social
     env: node
-    rootDir: facebook-backend
-    buildCommand: npm install
-    startCommand: npm start
+    rootDir: server
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    autoDeploy: true
     envVars:
       - key: NODE_VERSION
-        value: 20.19.5
+        value: 20
       - key: MONGO_URL
         sync: false
       - key: JWT_SECRET
