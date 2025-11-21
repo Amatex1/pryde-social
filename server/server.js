@@ -1,77 +1,42 @@
-import express from "express";
-import mongoose from "mongoose";
-import Grid from "gridfs-stream";
-import GridfsStorage from "multer-gridfs-storage";
-import cors from "cors";
-import bodyParser from "body-parser";
-import Pusher from "pusher";
-import dotenv from "dotenv";
-import "./dbConn.js";
-import connUrl from "./dbConn.js";
-import path from "path";
-import multer from "multer";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const path = require("path");
+require("dotenv").config();
 
-import Post from "./models/postModel.js";
-import router from "./router/imageRouting.js";
-import userRouter from "./router/userRouting.js";
-import chatRouter from "./router/chatsRouting.js";
-import messageRouter from "./router/messageRouting.js";
-
-dotenv.config();
-
-// ---- PUSHER INSTANCE ----
-export const pusher = new Pusher({
-  appId: process.env.PUSHER_APP_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
-  cluster: process.env.PUSHER_CLUSTER,
-  useTLS: true,
-});
-
-// ---- EXPRESS SETUP ----
 const app = express();
-const port = process.env.PORT || 9000;
 
-app.use(cors());
-app.use(bodyParser.json());
+// ---------- MIDDLEWARE ----------
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// ---- PUSHER AUTH ROUTE (Presence Channels) ----
-// IMPORTANT: attach your auth middleware here if needed
-app.post("/pusher/auth", (req, res) => {
-  const socketId = req.body.socket_id;
-  const channel = req.body.channel_name;
+// ---------- CORS ----------
+app.use(
+  cors({
+    origin: [
+      "https://prydeapp.com",
+      "https://www.prydeapp.com",
+    ],
+    credentials: true,
+  })
+);
 
-  // Fake user info — replace once you add JWT middleware
-  const userData = {
-    id: Date.now().toString(),
-    user_info: {
-      name: "User",
-      avatar: null,
-    },
-  };
-app.post("/pusher/auth", (req, res) => {
-  const { socket_id, channel_name } = req.body;
+// ---------- DATABASE ----------
+const connectDB = require("./dbConn");
+connectDB();
 
-  const userData = {
-    id: Date.now(), // Replace with authenticated user ID later
-    user_info: { name: "User" },
-  };
+// ---------- ROUTES ----------
+const router = require("./router");
+app.use("/", router); // mounts users/, messages/, conversations/, upload/
 
-  const auth = pusher.authenticate(socket_id, channel_name, userData);
-  res.send(auth);
+// ---------- PUSHER REALTIME ----------
+require("./pusher-realtime");
+
+// ---------- ROOT CHECK ----------
+app.get("/", (req, res) => {
+  res.json({ status: "Pryde API running" });
 });
 
-  const auth = pusher.authenticate(socketId, channel, userData);
-  res.send(auth);
-});
-
-// ---- ROUTERS ----
-app.use("/", router);
-app.use("/", userRouter);
-app.use("/", chatRouter);
-app.use("/", messageRouter);
-
-// ---- START SERVER ----
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// ---------- SERVER LISTEN ----------
+const PORT = process.env.PORT || 9000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

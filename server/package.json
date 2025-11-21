@@ -1,35 +1,16 @@
 {
-  "name": "facebook-backend",
+  "name": "pryde-social-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
-  "type": "module",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "gridfs-stream": "^1.1.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.10",
-    "multer": "^1.4.2",
-    "multer-gridfs-storage": "^4.2.0",
-    "path": "^0.12.7",
-    "pusher": "^5.0.0",
-    "socket.io": "^4.1.2",
-    "timeago.js": "^4.0.2",
-    "validator": "^13.6.0"
-  },
-  "devDependencies": {},
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
-  "author": "Mayank",
-  "license": "ISC"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2",
+    "pusher": "^5.0.0"
+  }
 }
