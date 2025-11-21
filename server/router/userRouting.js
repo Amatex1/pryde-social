@@ -1,12 +1,12 @@
 const express = require("express");
-const bcrypt = require('bcryp');
-const jwt = require('jsonwebtoken');
-const Users = require('../models/userModel');
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const connUrl = require('../dbConn');
-const mongoose = require('mongoose');
-const Pusher = require('pusher');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const Users = require("../models/userModel");
+const multer = require("multer");
+const GridFsStorage = require("multer-gridfs-storage");
+const connUrl = require("../dbConn");
+const mongoose = require("mongoose");
+const Pusher = require("pusher");
 
 const router = express.Router();
 
@@ -129,7 +129,7 @@ router.get("/user/me", auth, async (req, res) => {
 });
 
 /* -------------------------
-   UPDATE PROFILE (TEXT FIELDS)
+   UPDATE PROFILE
 ------------------------- */
 router.post("/updateProfile", auth, async (req, res) => {
   try {
@@ -230,11 +230,10 @@ router.get("/users/:id", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
 /* -------------------------------------------------
       FRIEND SYSTEM — MUTUAL FRIEND MODEL
    ------------------------------------------------- */
-
-const Users = require('../models/userModel'); // ensure this import already exists
 
 /* -------------------------
    SEND FRIEND REQUEST
@@ -288,7 +287,6 @@ router.post("/friends/request", auth, async (req, res) => {
   }
 });
 
-
 /* -------------------------
    CANCEL SENT REQUEST
 --------------------------*/
@@ -311,7 +309,6 @@ router.post("/friends/cancel", auth, async (req, res) => {
   }
 });
 
-
 /* -------------------------
    ACCEPT REQUEST
 --------------------------*/
@@ -326,7 +323,7 @@ router.post("/friends/accept", auth, async (req, res) => {
     target.sentRequests.pull(req.userId);
 
     viewer.friends.push(targetId);
-    target.friends.push(req.userId);
+    target.friends.push(viewerId);
 
     await viewer.save();
     await target.save();
@@ -336,7 +333,6 @@ router.post("/friends/accept", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
-
 
 /* -------------------------
    DECLINE REQUEST
@@ -360,7 +356,6 @@ router.post("/friends/decline", auth, async (req, res) => {
   }
 });
 
-
 /* -------------------------
    REMOVE FRIEND
 --------------------------*/
@@ -383,7 +378,6 @@ router.post("/friends/remove", auth, async (req, res) => {
   }
 });
 
-
 /* -------------------------
    GET FRIEND LIST
 --------------------------*/
@@ -398,7 +392,6 @@ router.get("/friends/list/:id", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
-
 
 /* -------------------------
    GET MUTUAL FRIENDS
